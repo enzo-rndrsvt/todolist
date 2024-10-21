@@ -13,4 +13,5 @@ function connectBDD(){
         die();
     }
 };
+//test
 ?>
