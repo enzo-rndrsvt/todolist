@@ -15,3 +15,5 @@ CREATE TABLE tasks (
     completed_at DATETIME,
     FOREIGN KEY (user_id) REFERENCES users(user_id) ON DELETE CASCADE
 );
+
+INSERT INTO users (username, password) VALUES ('admin', '$2y$10$6vDPzGWCQcj47WiR7GGiGuOB3V8nGQoBr7AUa/RE3I02ZjvXfhHSS'); -- admin with password 'admin'
