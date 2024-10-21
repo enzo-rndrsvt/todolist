@@ -9,7 +9,7 @@ $stmt->bindParam(':nom', $nom);
 $stmt->bindParam(':password', $password);
 $stmt->execute();
 
-header('Location: ../login.php');
+header('Location: login.php');
 exit();
 
 ?>
