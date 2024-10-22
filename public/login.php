@@ -22,9 +22,9 @@ if (isset($_SESSION['user'])) {header('Location: index.php'); exit();}
             }
             ?>
         <form action="./scripts/userLogin.php" method="POST">
-            <input type="text" id="nom" name="nom" placeholder="Nom d'utilisateur" required>
-            <input type="password" id="password" name="password" placeholder="Mot de passe" required>
-            <input type="submit" value="Connexion">
+            <div><input type="text" id="nom" name="nom" placeholder="Nom d'utilisateur" required></div>
+            <div><input type="password" id="password" name="password" placeholder="Mot de passe" required></div>
+            <div><input type="submit" value="Connexion"></div>
             <div>
                 <p>Pas encore inscrit ? <a href="register.php">Créer toi un compte</a></p>
             </div>

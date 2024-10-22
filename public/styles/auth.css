@@ -37,7 +37,7 @@ input {
 input:hover {
   border-color: #6c63ff;
   outline: none;
-  box-shadow: 0 0 5px rgba(108, 99, 255, 0.5);
+  box-shadow: 0 0 10px rgba(108, 99, 255, 0.5);
 }
 
 input[type="submit"] {

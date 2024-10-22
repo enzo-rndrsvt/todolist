@@ -23,9 +23,9 @@ if (isset($_SESSION['user'])) {header('Location: index.php');exit();}
             }
             ?>
         <form action="scripts/userRegister.php" method="POST">
-                <input type="text" id="nom" name="nom" placeholder="Nom d'utilisateur"required>
-                <input type="password" id="password" placeholder="Mot de passe" name="password" required>
-            <input type="submit" value="Inscription">
+            <div><input type="text" id="nom" name="nom" placeholder="Nom d'utilisateur"required></div>
+            <div><input type="password" id="password" placeholder="Mot de passe" name="password" required></div>
+            <div><input type="submit" value="Inscription"></div>
             <div>
                 <p>Déjà inscrit ? <a href="login.php">Connecte toi !</a></p>
             </div>
