@@ -10,6 +10,7 @@ if(!isset($_POST['nom']) || !isset($_POST['password'])){
 $pdo = connectBDD();
 
 $nom = htmlspecialchars($_POST['nom']);
+$email = htmlspecialchars($_POST['email']);
 $password = password_hash($_POST['password'], PASSWORD_BCRYPT);
 
 // Vérifier si le nom d'utilisateur existe déjà
@@ -18,16 +19,29 @@ $stmt->bindParam(':nom', $nom);
 $stmt->execute();
 $userExists = $stmt->fetchColumn();
 
+// Vérifier si l'email existe déjà
+$stmt = $pdo->prepare("SELECT COUNT(*) FROM users WHERE email = :email");
+$stmt->bindParam(':email', $email);
+$stmt->execute();
+$emailExists = $stmt->fetchColumn();
+
 if($userExists > 0){
     $_SESSION['message'] = "Nom d'utilisateur déjà pris.";
     header('Location: ../register.php');
     exit();
 }
 
+if($emailExists > 0){
+    $_SESSION['message'] = "Adresse mail déjà utilisée.";
+    header('Location: ../register.php');
+    exit();
+}
+
 try {
-    $stmt = $pdo->prepare("INSERT INTO users (username, password) VALUES (:nom, :password)");
+    $stmt = $pdo->prepare("INSERT INTO users (username, email, password) VALUES (:nom, :email, :password)");
     $stmt->bindParam(':nom', $nom);
     $stmt->bindParam(':password', $password);
+    $stmt->bindParam(':email', $email);
     $stmt->execute();
     $_SESSION['message'] = "Compte créé avec succès, veuillez maintenant vous connecter.";
     header('Location: ../login.php');

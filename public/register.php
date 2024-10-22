@@ -25,6 +25,7 @@ if (isset($_SESSION['user'])) {header('Location: index.php');exit();}
             ?>
         <form action="scripts/userRegister.php" method="POST">
             <div><input type="text" id="nom" name="nom" placeholder="Nom d'utilisateur"required></div>
+            <div><input type="email" id="email" name="email" placeholder="Adresse mail" required></div>
             <div class="password-container">
                 <input type="password" id="password" name="password" placeholder="Mot de passe" required>
                 <i class="fas fa-eye" id="togglePassword"></i>

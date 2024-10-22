@@ -18,7 +18,7 @@ if (isset($_SESSION['user'])) {header('Location: index.php'); exit();}
         <h1>Connexion</h1>
         <?php
             if (isset($_SESSION['message'])) {
-                echo "<p>".$_SESSION['message']."</p>";
+                echo "<p style='color:red;'>".$_SESSION['message']."</p>";
                 unset($_SESSION['message']);
             }
             ?>
@@ -39,10 +39,8 @@ if (isset($_SESSION['user'])) {header('Location: index.php'); exit();}
         const password = document.querySelector('#password');
 
         togglePassword.addEventListener('click', function (e) {
-            // toggle the type attribute
             const type = password.getAttribute('type') === 'password' ? 'text' : 'password';
             password.setAttribute('type', type);
-            // toggle the eye slash icon
             this.classList.toggle('fa-eye-slash');
         });
     </script>
