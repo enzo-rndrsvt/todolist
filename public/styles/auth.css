@@ -1,3 +1,4 @@
+/* Styles généraux */
 * {
   margin: 0;
   padding: 0;
@@ -8,7 +9,7 @@
 body {
   background-color: #3b3943;
   display: flex;
-  flex-direction: column; /* Modification pour les petits écrans */
+  flex-direction: column;
   justify-content: center;
   align-items: center;
   min-height: 100vh;
@@ -16,19 +17,20 @@ body {
 
 h1 {
   color: #ffffff;
-  font-size: 2em; /* Réduction de la taille du texte pour les petits écrans */
+  font-size: 2em;
   margin-bottom: 20px;
   text-align: center;
 }
 
 .container {
-  width: 90%; /* Prend presque toute la largeur de l'écran sur mobile */
-  max-width: 500px; /* Limite la largeur sur les grands écrans */
+  width: 90%;
+  max-width: 500px;
   text-align: center;
 }
 
+/* Champs de formulaire */
 input {
-  width: 80%; /* Largeur plus grande pour les téléphones */
+  width: 100%; /* Utilisation de 100% pour garantir que tous les inputs prennent la même largeur */
   padding: 10px;
   margin: 10px 0;
   border: 1px solid #ccc;
@@ -54,6 +56,7 @@ input[type="submit"]:hover {
   background-color: #5753d1;
 }
 
+/* Liens et textes */
 p,
 label,
 a {
@@ -71,17 +74,42 @@ a:hover {
   text-decoration: underline;
 }
 
-/* Media Query pour les écrans de moins de 768px (tablettes et téléphones) */
+/* Conteneur du mot de passe */
+.password-container {
+  position: relative;
+  width: 100%; /* Ajustement pour avoir la même largeur que les autres champs */
+  margin: 10px auto;
+}
+
+.password-container input {
+  width: 100%; /* S'assurer que l'input prend toute la largeur du conteneur */
+  padding-right: 40px; /* Espace pour l'icône */
+}
+
+.password-container i {
+  position: absolute;
+  right: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+  cursor: pointer;
+  color: #6c63ff;
+}
+
+.password-container i:hover {
+  color: #5753d1;
+}
+
+/* Media Query pour les petits écrans */
 @media (max-width: 768px) {
   body {
     flex-direction: column;
   }
 
   h1 {
-    font-size: 1.8em; /* Réduit encore la taille pour les petits écrans */
+    font-size: 1.8em;
   }
 
   input {
-    width: 90%; /* Agrandir la largeur des inputs pour qu'ils soient bien visibles */
+    width: 100%; /* Agrandir la largeur des inputs pour qu'ils soient bien visibles */
   }
 }
