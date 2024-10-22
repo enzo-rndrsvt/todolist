@@ -13,14 +13,16 @@ body {
   align-items: center;
 }
 
-.container {
-  width: 100%;
+h1 {
+  color: #ffffff;
+  font-size: 2.5em;
+  margin-bottom: 20px;
   text-align: center;
 }
 
-label,
-p {
-  color: white;
+.container {
+  width: 100%;
+  text-align: center;
 }
 
 input {
@@ -32,8 +34,37 @@ input {
   font-size: 16px;
 }
 
-input:focus {
+input:hover {
   border-color: #6c63ff;
   outline: none;
   box-shadow: 0 0 5px rgba(108, 99, 255, 0.5);
+}
+
+input[type="submit"] {
+  background-color: #6c63ff;
+  color: white;
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+input[type="submit"]:hover {
+  background-color: #5753d1;
+}
+
+p,
+label,
+a {
+  color: white;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+a {
+  transition: color 0.3s ease;
+}
+
+a:hover {
+  color: #6c63ff;
+  text-decoration: underline;
 }

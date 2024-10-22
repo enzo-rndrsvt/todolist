@@ -14,7 +14,7 @@ if (isset($_SESSION['user'])) {header('Location: index.php');exit();}
 <body>
 <body>
     <div class="container">
-        <p>Créez vous un compte pour utiliser le service</p>
+        <h1>Inscription</h1>
         <?php
             // Afficher les erreurs si elles existent
             if (isset($_SESSION['message'])) {
@@ -23,17 +23,11 @@ if (isset($_SESSION['user'])) {header('Location: index.php');exit();}
             }
             ?>
         <form action="scripts/userRegister.php" method="POST">
-            <div>
-                <label for="nom">Nom d'utilisateur</label>
-                <input type="text" id="nom" name="nom" required>
-            </div>
-            <div>
-                <label for="password">Mot de passe :</label>
-                <input type="password" id="password" name="password" required>
-            </div>
+                <input type="text" id="nom" name="nom" placeholder="Nom d'utilisateur"required>
+                <input type="password" id="password" placeholder="Mot de passe" name="password" required>
             <input type="submit" value="Inscription">
             <div>
-                <p>Déjà inscrit ?<a href="login.php">Connecte toi !</a></p>
+                <p>Déjà inscrit ? <a href="login.php">Connecte toi !</a></p>
             </div>
         </form>
     </div>
