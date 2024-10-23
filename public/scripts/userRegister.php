@@ -2,7 +2,7 @@
 session_start();
 require 'bdd.php';
 
-if(!isset($_POST['nom']) || !isset($_POST['password'])){
+if(!isset($_POST['nom']) || !isset($_POST['password']) || !isset($_POST['email'])){ 
     header('Location: ../register.php');
     exit();
 }
@@ -26,13 +26,13 @@ $stmt->execute();
 $emailExists = $stmt->fetchColumn();
 
 if($userExists > 0){
-    $_SESSION['message'] = "Nom d'utilisateur déjà pris.";
+    $_SESSION['error'] = "Nom d'utilisateur déjà pris.";
     header('Location: ../register.php');
     exit();
 }
 
 if($emailExists > 0){
-    $_SESSION['message'] = "Adresse mail déjà utilisée.";
+    $_SESSION['error'] = "Adresse mail déjà utilisée.";
     header('Location: ../register.php');
     exit();
 }
@@ -50,4 +50,6 @@ try {
     header('Location: ../register.php');
 }
 exit();
+
+
 ?>

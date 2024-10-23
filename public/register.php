@@ -17,9 +17,12 @@ if (isset($_SESSION['user'])) {header('Location: index.php');exit();}
     <div class="container">
         <h1>Inscription</h1>
         <?php
-            // Afficher les erreurs si elles existent
+            if (isset($_SESSION['error'])) {
+                echo "<p style='color:red;'>".$_SESSION['error']."</p>";
+                unset($_SESSION['error']);
+            }
             if (isset($_SESSION['message'])) {
-                echo "<p style='color:red;'>".$_SESSION['message']."</p>";
+                echo "<p'>".$_SESSION['message']."</p>";
                 unset($_SESSION['message']);
             }
             ?>

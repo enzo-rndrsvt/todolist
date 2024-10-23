@@ -6,11 +6,8 @@ CREATE TABLE users (
     username VARCHAR(100) NOT NULL,
     email VARCHAR(100) NOT NULL,
     password VARCHAR(100) NOT NULL,
-    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
-    is_verified BOOLEAN DEFAULT 0,
-    verification_code VARCHAR(6)
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 );
-
 -- Table des tâches
 CREATE TABLE tasks (
     task_id INT AUTO_INCREMENT PRIMARY KEY,
