@@ -22,7 +22,7 @@ if (isset($_SESSION['user'])) {header('Location: index.php');exit();}
                 unset($_SESSION['error']);
             }
             if (isset($_SESSION['message'])) {
-                echo "<p'>".$_SESSION['message']."</p>";
+                echo "<p>".$_SESSION['message']."</p>";
                 unset($_SESSION['message']);
             }
             ?>

@@ -33,22 +33,27 @@ if (isset($_SESSION['user'])) {
 
 ?>
 <link rel="stylesheet" href="./styles/index.css"><body>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <h2>Ajouter une tâche</h2>
     <form action="scripts/addTasks.php" method="POST">
-        <label for="nom a">Nom :</label>
-        <input type="text" id="nom" name="nom" required>
-        <label for="description">Description :</label>
-        <input type="text" id="description" name="description" required>
-        <input type="submit" value="Ajouter la tâche">
+        <div class="container">
+            <div>
+                <input type="text" id="nom" name="nom" placeholder="Nom de la tâche" required>
+                <input type="text" id="description" name="description" placeholder="Description de la tâche" required>
+            </div>
+                <input type="submit" value="Ajouter la tâche">
+        </div>
     </form>
 
     <h2>Tâches en cours</h2>
     <?php
     foreach ($tasks as $task) {
         if (!$task['is_completed']) {
-            echo '<li><div><p>' . htmlspecialchars($task['task_name']) . '</p><p>' . htmlspecialchars($task['task_description']) . '</p></div></li>';
-            echo '<form action = scripts/completeTask.php method="POST"> <input type="hidden" name="task_id" value="' . $task['task_id'] . '"> <button type="submit">Compléter</button> </form> </form>';
-            echo '</li>';
+            echo '<div class="task">';
+            echo '<p>' . htmlspecialchars($task['task_name']) . '</p><p>' . htmlspecialchars($task['task_description']) . '</p>';
+            echo '<form action = scripts/completeTask.php method="POST"> <input type="hidden" name="task_id" value="' . $task['task_id'] . '"> <button type="submit" class="complete"><i class="fa-solid fa-check"></i></button> </form> </form>';
+            echo '<form action = scripts/deleteTask.php method="POST"> <input type="hidden" name="task_id" value="' . $task['task_id'] . '"> <button type="submit" class="delete"><i class="fa-solid fa-trash"></i></button> </form> </form>';
+            echo '</div>';
         }
     }
     ?>
@@ -57,7 +62,10 @@ if (isset($_SESSION['user'])) {
     <?php
     foreach ($tasks as $task) {
         if ($task['is_completed']) {
-            echo '<li>' . htmlspecialchars($task['task_description']) . '</li>';
+            echo '<div class="task">';
+            echo '<p>' . htmlspecialchars($task['task_name']) . '</p><p>' . htmlspecialchars($task['task_description']) . '</p>';
+            echo '<form action = scripts/deleteTask.php method="POST"> <input type="hidden" name="task_id" value="' . $task['task_id'] . '"> <button type="submit" class="delete"><i class="fa-solid fa-trash"></i></button> </form> </form>';
+            echo '</div>';
         }
     }
     ?>

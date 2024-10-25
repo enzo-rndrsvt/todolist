@@ -1,0 +1,140 @@
+/* Styles généraux */
+* {
+  margin: 0;
+  padding: 0;
+  font-family: "Comfortaa", sans-serif;
+}
+
+body {
+  background-color: #3b3943;
+  min-height: 100vh;
+}
+
+input {
+  width: 100%; /* Utilisation de 100% pour garantir que tous les inputs prennent la même largeur */
+  padding: 10px;
+  margin: 10px 0;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 16px;
+}
+
+input:hover {
+  border-color: #6c63ff;
+  outline: none;
+  box-shadow: 0 0 10px rgba(108, 99, 255, 0.5);
+}
+
+input[type="submit"] {
+  background-color: #6c63ff;
+  color: white;
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+input[type="submit"]:hover {
+  background-color: #5753d1;
+}
+
+h2 {
+  color: white;
+  font-size: 2.5em;
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.container {
+  text-align: center;
+}
+
+.task {
+  background-color: #d9d9d9;
+  color: white;
+  border-radius: 5px;
+  font-size: 16px;
+  width: 50%;
+  margin: 0 auto;
+}
+
+.complete {
+  display: inline-block;
+  width: 106px;
+  height: 45px;
+  border: none;
+  border-radius: 12px;
+  font-size: 1.2rem;
+  color: #d9d9d9;
+  background-color: #6c63ff;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+.complete:hover {
+  border-color: #6c63ff;
+  outline: none;
+  box-shadow: 0 0 10px rgba(108, 99, 255, 0.5);
+  background-color: #5753d1;
+}
+
+.delete {
+  display: inline-block;
+  width: 106px;
+  height: 45px;
+  border: none;
+  border-radius: 12px;
+  font-size: 1.2rem;
+  color: #d9d9d9;
+  background-color: #d15353;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.delete:hover {
+  border-color: #d15353;
+  outline: none;
+  box-shadow: 0 0 10px rgba(209, 60, 60, 0.5);
+  background-color: #da4141;
+}
+
+/* Media queries pour rendre le site responsive */
+@media only screen and (max-width: 768px) {
+  h2 {
+    font-size: 2em; /* Réduit la taille de la police pour les petits écrans */
+  }
+
+  .task {
+    width: 90%; /* Agrandit la largeur de l'élément task pour s'adapter aux petits écrans */
+    font-size: 14px; /* Diminue légèrement la taille de la police */
+  }
+
+  .complete,
+  .delete {
+    width: 100%; /* Les boutons prennent toute la largeur sur mobile */
+    font-size: 1rem; /* Réduit la taille de la police des boutons */
+  }
+
+  input {
+    width: 100%; /* Les inputs prennent toute la largeur sur mobile */
+    font-size: 14px; /* Réduit la taille de la police */
+  }
+}
+
+@media only screen and (max-width: 480px) {
+  h2 {
+    font-size: 1.8em;
+  }
+
+  .task {
+    width: 100%; /* Les tâches prennent toute la largeur sur très petits écrans */
+  }
+
+  .complete,
+  .delete {
+    width: 100%;
+    font-size: 0.9rem;
+  }
+
+  input {
+    font-size: 12px; /* Encore plus petite taille de police pour les très petits écrans */
+  }
+}

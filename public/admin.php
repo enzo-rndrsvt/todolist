@@ -13,6 +13,16 @@ if($_SERVER['REQUEST_METHOD'] === 'POST'){
     header('Location: admin.php');
     exit;
 }
+
+echo '<h2>Liste des utilisateurs</h2>';
+$pdo = connectBDD();
+$stmt = $pdo->prepare('SELECT * FROM users');
+$stmt->execute();
+$users = $stmt->fetchAll(PDO::FETCH_ASSOC);
+
+foreach($users as $user){
+    echo $user['username'] . ' | ' . $user['email'] . '</br>';
+}
 ?>
 
 

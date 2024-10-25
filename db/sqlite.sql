@@ -9,7 +9,7 @@ CREATE TABLE users (
 CREATE TABLE tasks (
     task_id INTEGER PRIMARY KEY AUTOINCREMENT,
     user_id INTEGER,
-    tasks_name TEXT NOT NULL,
+    task_name TEXT NOT NULL,
     task_description TEXT NOT NULL,
     is_completed INTEGER DEFAULT 0,
     created_at DATETIME DEFAULT CURRENT_TIMESTAMP,
