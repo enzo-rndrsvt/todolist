@@ -3,8 +3,10 @@ session_start();
 require 'bdd.php';
 $pdo = connectBDD();
 
-$stmt = $pdo->prepare("SELECT * FROM task");
-$tasks = $stmt->fetchAll(PDO::FETCH_ASSOC);
+if (!isset($_SESSION['user'])) {
+    header('Location: ../login.php');
+    exit();
+}
 
 if($_SERVER['REQUEST_METHOD'] === 'POST'){
     $name = htmlspecialchars($_POST['nom']);
